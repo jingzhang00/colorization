@@ -1,0 +1,6 @@
+gradio~=3.47.1
+torch~=1.13.1
+opencv-python~=4.8.1.78
+numpy~=1.23.1
+pillow~=10.0.1
+diffusers~=0.20.0
