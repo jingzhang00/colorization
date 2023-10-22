@@ -10,4 +10,5 @@ pip install -r requirements.txt
 python main.py
 ```
 Then you will get two URLs, one for local and one for the public, open it in the browser then the webpage should look like the following:
+
 <img src="webpage.png" height="75%" width="75%">
