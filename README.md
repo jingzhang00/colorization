@@ -11,4 +11,6 @@ python main.py
 ```
 Then you will get two URLs, one for local and one for the public, open it in the browser then the webpage should look like the following:
 
+**NOTE:** For negative prompt, we use the default setting "monochrome".
+
 <img src="webpage.png" height="75%" width="75%">
