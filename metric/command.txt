@@ -1,0 +1,9 @@
+python -m pytorch_fid img CNN_eccv16 --batch-size=1 
+
+python -m pytorch_fid img CNN_siggraph17 --batch-size=1 
+
+python -m pytorch_fid img GAN_colorization --batch-size=1
+
+python -m pytorch_fid img no_prompt --batch-size=1
+python -m pytorch_fid img simple_prompt --batch-size=1  
+python -m pytorch_fid img detail_prompt --batch-size=1 

@@ -1,0 +1,5 @@
+[default]
+entity = zixianyan
+project = controlNet-512x512
+base_url = https://api.wandb.ai
+

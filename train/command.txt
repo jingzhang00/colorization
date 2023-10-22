@@ -1,0 +1,152 @@
+export MODEL_DIR="/root/autodl-tmp/diffusion/diffusion-v1-5"
+export OUTPUT_DIR="./model"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name="examples_pic" \
+ --resolution=512 \
+ --learning_rate=1e-5 \
+ --validation_image "./conditioning_image_1.png" "./conditioning_image_2.png" \
+ --validation_prompt "red circle with blue background" "cyan circle with brown floral background" \
+ --train_batch_size=4
+
+
+
+
+
+export MODEL_DIR="/root/autodl-tmp/diffusion/stable-diffusion-v1-5"
+export OUTPUT_DIR="/root/autodl-tmp/diffusion"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name=fusing/fill50k \
+ --resolution=512 \
+ --learning_rate=1e-5 \
+ --validation_image "./conditioning_image_1.png" "./conditioning_image_2.png" \
+ --validation_prompt "red circle with blue background" "cyan circle with brown floral background" \
+ --train_batch_size=1 \
+ --gradient_accumulation_steps=4 \
+ --gradient_checkpointing \
+ --use_8bit_adam
+
+export MODEL_DIR="runwayml/stable-diffusion-v1-5"
+export OUTPUT_DIR="./model"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name=fusing/fill50k \
+ --resolution=512 \
+ --learning_rate=1e-5 \
+ --validation_image "./conditioning_image_1.png" "./conditioning_image_2.png" \
+ --validation_prompt "red circle with blue background" "cyan circle with brown floral background" \
+ --train_batch_size=4
+
+
+
+
+
+
+
+
+export MODEL_DIR="/root/autodl-tmp/model/diffusion-v1-5"
+export OUTPUT_DIR="/root/autodl-tmp/model/ckpt"
+export DATA_DIR="/root/autodl-tmp/data/grayscale_image_val2017"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name=$DATA_DIR \
+ --resolution=200 \
+ --learning_rate=1e-5 \
+ --image_column=image \
+ --caption_column=caption \
+ --conditioning_image_column=grayscale_image \
+ --train_batch_size=16 \
+ --gradient_accumulation_steps=4 \
+ --num_train_epochs=1 \
+ --enable_xformers_memory_efficient_attention \
+ --checkpointing_steps=5000 \
+ --report_to wandb \
+
+
+
+
+export MODEL_DIR="/root/autodl-tmp/model/diffusion-v1-5"
+export OUTPUT_DIR="/root/autodl-tmp/model/ckpt500k"
+export DATA_DIR="/root/autodl-tmp/data/grayscale_image_train2017_500k"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name=$DATA_DIR \
+ --resolution=200 \
+ --learning_rate=1e-5 \
+ --image_column=image \
+ --caption_column=caption \
+ --conditioning_image_column=grayscale_image \
+ --train_batch_size=15 \
+ --gradient_accumulation_steps=4 \
+ --num_train_epochs=2 \
+ --enable_xformers_memory_efficient_attention \
+ --checkpointing_steps=4000 \
+ --validation_steps=4000 \
+ --validation_image './samples/153217.jpg' './samples/221708.jpg' './samples/223747.jpg' './samples/224051.jpg' './samples/44652.jpg' './samples/534605.jpg'\
+ --validation_prompt 'a black cat standing in front of a motorcycle' 'Lights shine on a wooden dining room table' 'A man is sleeping with his head on a pillow' 'Bicycle parked by the side of busy highway on a concrete slab' 'An single passanger in an airplane flying through the sky' 'Man in motorcycle leathers standing in front of a group of bikes'\
+ --report_to wandb \
+
+
+
+
+
+export MODEL_DIR="/root/autodl-tmp/model/diffusion-v1-5"
+export OUTPUT_DIR="/root/autodl-tmp/model/ckpt512_100k"
+export DATA_DIR="/root/autodl-tmp/data/grayscale_image_512_100k"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name=$DATA_DIR \
+ --resolution=512 \
+ --learning_rate=1e-5 \
+ --image_column=image \
+ --caption_column=caption \
+ --conditioning_image_column=grayscale_image \
+ --train_batch_size=6 \
+ --gradient_accumulation_steps=4 \
+ --num_train_epochs=1 \
+ --enable_xformers_memory_efficient_attention \
+ --checkpointing_steps=1000 \
+ --validation_steps=500 \
+ --validation_image './samples/512/140420.jpg' './samples/512/179765.jpg' './samples/512/561256.jpg' './samples/512/63740.jpg' './samples/512/249025.jpg' './samples/512/99054.jpg'\
+ --validation_prompt 'A motorcycle is parked on a gravel road in a forest by a stream' 'A motorcycle with its brake extended standing outside' 'A woman in a yellow bathroom is holding a camera' 'A laptop computer and a desktop computer on a white desk' 'A beautiful yellow rose is seen in a small vase' 'An airplane parked at the runway is being serviced by workers'\
+ --report_to wandb \
+
+
+
+
+export MODEL_DIR="/root/autodl-tmp/model/diffusion-v1-5"
+export OUTPUT_DIR="/root/autodl-tmp/model/ckpt512_100k"
+export DATA_DIR="/root/autodl-tmp/data/grayscale_image_512_100k"
+
+accelerate launch train_controlnet.py \
+ --pretrained_model_name_or_path=$MODEL_DIR \
+ --output_dir=$OUTPUT_DIR \
+ --dataset_name=$DATA_DIR \
+ --resolution=512 \
+ --learning_rate=1e-5 \
+ --image_column=image \
+ --caption_column=caption \
+ --conditioning_image_column=grayscale_image \
+ --train_batch_size=6 \
+ --gradient_accumulation_steps=5 \
+ --num_train_epochs=3 \
+ --enable_xformers_memory_efficient_attention \
+ --checkpointing_steps=1000 \
+ --validation_steps=500 \
+ --validation_image './samples/512/44652.jpg' './samples/512/179765.jpg' './samples/512/561256.jpg' './samples/512/63740.jpg' './samples/512/249025.jpg' './samples/512/99054.jpg'\
+ --validation_prompt 'A jet aircraft flying through the sky' 'A motorcycle with its brake extended standing outside near a garage' 'A woman wearing a hat in a yellow bathroom is holding a camera' 'A laptop computer and a desktop computer on a white desk in an office' 'A beautiful yellow rose is seen in a small vase' 'An airplane parked at the runway is being serviced by workers'\
+ --report_to wandb \
+
