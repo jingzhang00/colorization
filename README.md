@@ -21,7 +21,7 @@ Then you will get two URLs, one for local and one for the public, open it in the
 <img src="preview/intro.png" height="50%" width="50%">
 
 ### compare with CNN/GAN based method
-<img src="preview/compare.png" height="75%" width="75%">
+<img src="preview/comparison.png" height="75%" width="75%">
 
 ### results when using different prompts
 <img src="preview/prompt.png" height="75%" width="75%">
