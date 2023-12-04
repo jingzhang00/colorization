@@ -13,4 +13,15 @@ Then you will get two URLs, one for local and one for the public, open it in the
 
 **NOTE:** For negative prompt, we use the default setting "monochrome".
 
-<img src="webpage.png" height="75%" width="75%">
+<img src="preview/webpage.png" height="75%" width="75%">
+
+## Outcomes
+
+### overview
+<img src="preview/intro.png" height="30%" width="30%">
+
+### compare with CNN/GAN based method
+<img src="preview/compare.png" height="50%" width="50%">
+
+### results when using different prompts
+<img src="preview/prompt.png" height="50%" width="50%">
